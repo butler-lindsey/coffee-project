@@ -17,8 +17,13 @@ function renderCoffees(coffees) {
     return html;
 }
 
+function checkForMatch(e) {
+   var  coffeeSearch = document.getElementById('coffeename').value
+    alert(coffeeSearch)
+}
+
 function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
+    /*e.preventDefault();*/ // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
@@ -53,4 +58,4 @@ var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+submitButton.addEventListener('click', checkForMatch);
