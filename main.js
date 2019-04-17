@@ -63,20 +63,23 @@ function fuckBitchesGetMoney() {
     tbody.innerHTML = renderCoffees(searchFilteredCoffee);
 }
 
-/*function checkForMatch(e) {
-    var coffeeSearch = document.getElementById('coffeename').value;
-    for (var i = 0; i < filteredCoffees.length; i++) {
-        if (filteredCoffees.includes(coffeeSearch))
-    }
-}*/
+function addCoffee() {
+    var newRoast = document.getElementById("inputGroupSelect01").value;
+    var newCoffeeInput = document.getElementById("newCoffeeName").value;
+    var newCoffee = {};
+        newCoffee.id=coffees.length + 1;
+        newCoffee.name=newCoffeeInput;
+        newCoffee.roast=newRoast;
+        coffees.push(newCoffee);
+        renderCoffee(coffees);
 
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+}
 
 
 var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
+var submitButton = document.querySelector('#addCoffee');
 var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
-/*submitButton.addEventListener('click', checkForMatch);*/
+submitButton.addEventListener('click', addCoffee);
