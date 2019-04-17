@@ -15,14 +15,18 @@
                 <div id="coffees"></div>
             </div>
             <div class="col">
-                <form>
-                    <h4>Roast</h4>
-                    <select class="custom-select mb-4" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
-                        <option value="1">Light</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Dark</option>
+                <form name="coffeeform">
+
+
+                    <h4>Roast:</h4>
+                    <select class="custom-select mb-4" id="roast-selection" onchange="updateCoffees()">
+                        <option selected>all</option>
+                        <option>light</option>
+                        <option>medium</option>
+                        <option>dark</option>
                     </select>
+
+
                     <!--<label for="roast-selection">Roast</label>-->
                     <!--<select id="roast-selection" onchange="updateCoffees()">-->
                         <!--<option>light</option>-->
@@ -34,9 +38,9 @@
                     <!--<input type="text">-->
                     <h5>Coffee Name</h5>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" id="coffeename" class="form-control mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default" oninput="fuckBitchesGetMoney()">
                     </div>
-                    <button type="button" class="btn btn-block btn-secondary mb-4">Submit</button>
+                    <button type="button" class="btn btn-block btn-secondary mb-4" id="submit">Submit</button>
                     <hr class = "w-100">
                     <h1 class="text-center">Add A Coffee</h1>
                     <form>
@@ -67,21 +71,7 @@
 
         </div>
 
-<<<<<<< HEAD
-    <form name="coffeeform">
-        <label for="roast-selection">Roast:</label>
-        <select id="roast-selection" onchange="updateCoffees()">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-        <label for="coffeename">Coffee Name</label>
-        <input id="coffeename" type="text">
-        <input id="submit" type="submit" />
 
-    </form>
-=======
->>>>>>> af92f327434635e01555876a333b5c762a89dcdb
 
 
         <!--<thead>
@@ -91,17 +81,13 @@
                 <th>ROAST</th>
             </tr>
         </thead>-->
-<<<<<<< HEAD
-        <div id="coffees"></div>
 
-
-=======
-        <!--<div id="coffees"></div>-->
-    </table>
+       <!-- <div id="coffees"></div>-->
+   <!-- </table>-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
->>>>>>> af92f327434635e01555876a333b5c762a89dcdb
+
     <script src="main.js"></script>
     </div>
 </body>
