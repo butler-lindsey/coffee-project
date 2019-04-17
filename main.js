@@ -56,7 +56,7 @@ function fuckBitchesGetMoney() {
     var coffeeSearch = document.getElementById("coffeename").value;
     var searchFilteredCoffee= [];
     filteredCoffeesForFiltering.forEach(function(coffee){
-        if (coffee.name.toLowerCase().includes(coffeeSearch)){
+        if (coffee.name.toLowerCase().includes(coffeeSearch.toLowerCase())){
             searchFilteredCoffee.push(coffee)
         }
     });
@@ -65,14 +65,18 @@ function fuckBitchesGetMoney() {
 
 function addCoffee() {
     var newRoast = document.getElementById("inputGroupSelect01").value;
-    var newCoffeeInput = document.getElementById("newCoffeeName").value;
+    var oldCoffeeInput = document.getElementById("newCoffeeName").value;
+    var middleCoffeeInput = oldCoffeeInput.split(' ');
+    for (var i=0; i<middleCoffeeInput.length; i++){
+        middleCoffeeInput[i] = middleCoffeeInput[i].charAt(0).toUpperCase() + middleCoffeeInput[i].slice(1);
+    }
+    var newCoffeeInput = middleCoffeeInput.join(' ');
     var newCoffee = {};
         newCoffee.id=coffees.length + 1;
         newCoffee.name=newCoffeeInput;
         newCoffee.roast=newRoast;
         coffees.push(newCoffee);
-        renderCoffee(coffees);
-
+        tbody.innerHTML = renderCoffees(coffees);
 }
 
 
