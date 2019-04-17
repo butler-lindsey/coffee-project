@@ -2,8 +2,8 @@
 
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
-    html += '<h2>' + coffee.name + '</h2>';
-    html += '<p>' + coffee.roast + '</p>';
+    html += '<h2 class="d-inline">' + coffee.name + ' ' + '</h2>';
+    html += '<p class="d-inline">' + ' ' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
@@ -17,17 +17,40 @@ function renderCoffees(coffees) {
     return html;
 }
 
+
+
 function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
+    /*e.preventDefault();*/ // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+        } else if (selectedRoast === "all"){
+            filteredCoffees = coffees
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
+    console.log(filteredCoffees)
 }
+
+function fuckBitchesGetMoney() {
+    var coffeeSearch = document.getElementById("coffeename").value;
+    var searchFilteredCoffee= []
+    coffees.forEach(function(coffee){
+        if (coffee.name.toLowerCase().includes(coffeeSearch)){
+            searchFilteredCoffee.push(coffee)
+        }
+    });
+    tbody.innerHTML = renderCoffees(searchFilteredCoffee);
+}
+
+/*function checkForMatch(e) {
+    var coffeeSearch = document.getElementById('coffeename').value;
+    for (var i = 0; i < filteredCoffees.length; i++) {
+        if (filteredCoffees.includes(coffeeSearch))
+    }
+}*/
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -53,4 +76,4 @@ var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+/*submitButton.addEventListener('click', checkForMatch);*/
