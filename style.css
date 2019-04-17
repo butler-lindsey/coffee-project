@@ -7,3 +7,12 @@ td, th {
     border: 1px solid black;
     padding: 5px 10px;
 }
+
+hr {
+    width: 80%;
+    display: block;
+    height: 1em;
+    border: 0;
+    border-top: 1px solid white;
+    padding: 0;
+}
