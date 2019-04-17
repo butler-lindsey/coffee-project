@@ -16,43 +16,6 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
-
-
-function updateCoffees(e) {
-    /*e.preventDefault();*/ // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        } else if (selectedRoast === "all"){
-            filteredCoffees = coffees
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-    console.log(filteredCoffees)
-}
-
-function fuckBitchesGetMoney() {
-    var coffeeSearch = document.getElementById("coffeename").value;
-    var searchFilteredCoffee= []
-    coffees.forEach(function(coffee){
-        if (coffee.name.toLowerCase().includes(coffeeSearch)){
-            searchFilteredCoffee.push(coffee)
-        }
-    });
-    tbody.innerHTML = renderCoffees(searchFilteredCoffee);
-}
-
-/*function checkForMatch(e) {
-    var coffeeSearch = document.getElementById('coffeename').value;
-    for (var i = 0; i < filteredCoffees.length; i++) {
-        if (filteredCoffees.includes(coffeeSearch))
-    }
-}*/
-
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -69,6 +32,46 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
+
+var filteredCoffeesForFiltering = coffees;
+
+function updateCoffees(e) {
+    /*e.preventDefault();*/ // don't submit the form, we just want to update the data
+    var selectedRoast = roastSelection.value;
+    var filteredCoffees = [];
+    coffees.forEach(function(coffee) {
+        if (coffee.roast === selectedRoast) {
+            filteredCoffees.push(coffee);
+        } else if (selectedRoast === "all"){
+            filteredCoffees = coffees;
+            filteredCoffeesForFiltering = coffees;
+        }
+    });
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+    filteredCoffeesForFiltering = filteredCoffees;
+    return filteredCoffeesForFiltering
+}
+
+function fuckBitchesGetMoney() {
+    var coffeeSearch = document.getElementById("coffeename").value;
+    var searchFilteredCoffee= [];
+    filteredCoffeesForFiltering.forEach(function(coffee){
+        if (coffee.name.toLowerCase().includes(coffeeSearch)){
+            searchFilteredCoffee.push(coffee)
+        }
+    });
+    tbody.innerHTML = renderCoffees(searchFilteredCoffee);
+}
+
+/*function checkForMatch(e) {
+    var coffeeSearch = document.getElementById('coffeename').value;
+    for (var i = 0; i < filteredCoffees.length; i++) {
+        if (filteredCoffees.includes(coffeeSearch))
+    }
+}*/
+
+// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
