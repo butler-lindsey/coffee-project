@@ -1,13 +1,21 @@
 "use strict";
 
 function renderCoffee(coffee) {
-    var html = '<div class="coffee">';
-    html += '<h2 class="d-inline">' + coffee.name + ' ' + '</h2>';
+    var html = '<div onclick="coffeeData()" data-toggle="modal" data-target="#exampleModalScrollable" class="coffee">';
+    html += '<h2 id="'+ coffee.id +'" class="d-inline">' + coffee.name + ' ' + '</h2>';
     html += '<p class="d-inline">' + ' ' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
 }
+
+
+function coffeeData() {
+    var firstCoffee = document.getElementById('1');
+    console.log(firstCoffee);
+    /*document.getElementById('exampleModalScrollableTitle').innerText = firstCoffee*/
+}
+
 
 function renderCoffees(coffees) {
     var html = '';
