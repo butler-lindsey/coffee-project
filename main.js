@@ -259,6 +259,7 @@ function makeModal() {
 }
 */
 
+
 mapboxgl.accessToken = mapboxKey;
 var map = new mapboxgl.Map({
     container: 'map',
@@ -271,12 +272,7 @@ var marker = new mapboxgl.Marker()
     .setLngLat(map.center)
     .addTo(map)
 
-document.getElementById('chipotleButton').addEventListener('click', function () {
-    map.flyTo({
-        center: [-95.58673, 29.73733],
-        zoom: 10
-    });
-});
+
 
 
 
