@@ -1,0 +1,1 @@
+var mapboxKey = 'pk.eyJ1IjoibWF0dGJ1dGxlcjI0OTkiLCJhIjoiY2p1anY0M3JzMDF1NDQ0czEzaGdqMXpociJ9.fP70VfqbTfe1PpT348UXQw';

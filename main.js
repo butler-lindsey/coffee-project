@@ -21,6 +21,13 @@ function createModal(input) {
             imgDiv.src = coffee.img;
             coffeeOrigin.innerText = coffee.origin;
             tastingNotes.innerText = coffee.taste;
+            map.flyTo({
+                center: coffee.center
+            });
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coffee.center)
+                .addTo(map)
+
         }
     })
 }
@@ -252,18 +259,22 @@ function makeModal() {
 }
 */
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWF0dGJ1dGxlcjI0OTkiLCJhIjoiY2p1anY0M3JzMDF1NDQ0czEzaGdqMXpociJ9.fP70VfqbTfe1PpT348UXQw';
+mapboxgl.accessToken = mapboxKey;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 9,
-    center: [-98.4870, 29.4284]
+    zoom: 5,
+    center: [-95.58673, 29.73733],
 });
+
+var marker = new mapboxgl.Marker()
+    .setLngLat(map.center)
+    .addTo(map)
 
 document.getElementById('chipotleButton').addEventListener('click', function () {
     map.flyTo({
         center: [-95.58673, 29.73733],
-        zoom: 17
+        zoom: 10
     });
 });
 
