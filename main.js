@@ -171,6 +171,11 @@ function addCoffee() {
         newCoffee.name=newCoffeeInput;
         newCoffee.roast=newRoast;
         coffees.push(newCoffee);
+        newCoffee.img = "https://via.placeholder.com/150\n" +
+            "\n" +
+            "C/O https://placeholder.com/";
+        newCoffee.origin = 'The land of the ice and snow';
+        newCoffee.taste = 'Scrumdidlyumptious';
         tbody.innerHTML = renderCoffees(coffees);
 }
 
