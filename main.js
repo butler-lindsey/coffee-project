@@ -1,5 +1,10 @@
 "use strict";
 
+window.onload = function() {
+    loadcoffee();
+};
+
+
 function renderCoffee(coffee) {
     var html = '<div id="'+ coffee.id +'" data-toggle="modal" onclick="createModal(this)" data-target="#exampleModalScrollable" class="coffee">';
     html += '<h2  class="d-inline">' + coffee.name + ' ' + '</h2>';
@@ -183,8 +188,16 @@ function fuckBitchesGetMoney() {
 }
 
 function addCoffee() {
+
     var newRoast = document.getElementById("inputGroupSelect01").value;
+    var newCoffeeImg = document.getElementById('newCoffeeImg').value;
+    var newCoffeeOrigin = document.getElementById('newCoffeeOrigin').value;
+    var coffeeOrigin;
+    var newCoffeeTaste = document.getElementById('newCoffeeTaste').value;
+    var coffeeTaste;
     var oldCoffeeInput = document.getElementById("newCoffeeName").value;
+
+    var coffeeImg;
     var middleCoffeeInput = oldCoffeeInput.split(' ');
     for (var i=0; i<middleCoffeeInput.length; i++){
         middleCoffeeInput[i] = middleCoffeeInput[i].charAt(0).toUpperCase() + middleCoffeeInput[i].slice(1);
@@ -195,15 +208,16 @@ function addCoffee() {
         newCoffee.name=newCoffeeInput;
         newCoffee.roast=newRoast;
         coffees.push(newCoffee);
-        newCoffee.img = "https://via.placeholder.com/150\n" +
+        newCoffee.img = coffeeImg = (newCoffeeImg) ? newCoffee.img = newCoffeeImg : newCoffee.img = "https://via.placeholder.com/150\n" +
             "\n" +
             "C/O https://placeholder.com/";
-        newCoffee.origin = 'The land of the ice and snow';
-        newCoffee.taste = 'Scrumdidlyumptious';
-    savecoffee();
-    loadcoffee();
+        newCoffee.origin = coffeeOrigin = (newCoffeeOrigin) ? newCoffee.origin = newCoffeeOrigin : newCoffee.origin = 'The land of the ice and snow';
+        newCoffee.taste = coffeeTaste = (newCoffeeTaste) ? newCoffee.taste = newCoffeeTaste : newCoffee.taste ='Scrumdidlyumptious';
+        savecoffee();
+        loadcoffee();
         tbody.innerHTML = renderCoffees(coffees);
 }
+
 
 
 var tbody = document.querySelector('#coffees');

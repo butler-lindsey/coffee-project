@@ -32,16 +32,28 @@
                     <button type="button" class="btn btn-block btn-secondary mb-4" id="submit">Submit</button>
                     <hr class = "w-100">
                     <h1 class="text-center">Add A Coffee</h1>
-                    <form>
-                        <h4>Roast</h4>
+                    <form id="myform">
+                        <h4>Roast:</h4>
                         <select required class="custom-select mb-4" id="inputGroupSelect01">
                             <option>light</option>
                             <option>medium</option>
                             <option>dark</option>
                         </select>
-                        <h5>Coffee Name</h5>
+                        <h5>Coffee Name:</h5>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="newCoffeeName">
+                        </div>
+                        <h5>Image:</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="newCoffeeImg">
+                        </div>
+                        <h5>Origin:</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="newCoffeeOrigin">
+                        </div>
+                        <h5>Tasting Notes: </h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="newCoffeeTaste">
                         </div>
                         <button type="button" class="btn btn-block btn-secondary mb-4" id="addCoffee">Submit</button>
                     </form>
@@ -63,7 +75,7 @@
                     <div class="modal-body">
                         <div class = "float-right" id='map' style='width: 250px; height: 250px;'>
                     </div>
-                        <img id="imgDiv" src="" alt="">
+                        <img id="imgDiv" style='width: 144px; height: 216px;' src="" alt="">
                         <br>
                         <br>
                         <br>
