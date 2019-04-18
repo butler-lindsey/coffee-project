@@ -200,6 +200,8 @@ function addCoffee() {
             "C/O https://placeholder.com/";
         newCoffee.origin = 'The land of the ice and snow';
         newCoffee.taste = 'Scrumdidlyumptious';
+    savecoffee();
+    loadcoffee();
         tbody.innerHTML = renderCoffees(coffees);
 }
 
@@ -268,9 +270,26 @@ var map = new mapboxgl.Map({
     center: [-95.58673, 29.73733],
 });
 
-var marker = new mapboxgl.Marker()
+/*var marker = new mapboxgl.Marker()
     .setLngLat(map.center)
-    .addTo(map)
+    .addTo(map);*/
+
+
+
+function savecoffee() {
+    localStorage.setItem('local_coffee', JSON.stringify(coffees));
+    console.log("Saved local storage");
+}
+function loadcoffee() {
+    coffees = JSON.parse(localStorage.getItem('local_coffee'));
+    console.log("Loaded local storage")
+}
+
+
+
+
+
+
 
 
 
