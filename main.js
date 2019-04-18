@@ -3,7 +3,7 @@
 function renderCoffee(coffee) {
     var html = '<div id="'+ coffee.id +'" data-toggle="modal" onclick="createModal(this)" data-target="#exampleModalScrollable" class="coffee">';
     html += '<h2  class="d-inline">' + coffee.name + ' ' + '</h2>';
-    html += '<p class="d-inline">' + ' ' + coffee.roast + '</p>';
+    html += '<p class="d-inline text-muted">' + ' ' + coffee.roast + '</p>';
     html += '</div>';
     return html;
 }
@@ -192,6 +192,7 @@ submitButton.addEventListener('click', addCoffee);
 /*
 
 function makeModal() {
+  for (var i=0; i<coffees.length; i++) {
     var modalDivTop = document.createElement('div');
     modalDivTop.setAttribute('class', 'modal fade');
     modalDivTop.setAttribute('id', 'exampleModalScrollable');
@@ -230,5 +231,6 @@ function makeModal() {
     modalDivContent.appendChild(modalBody);
     modalDivHeader.appendChild(modalh5);
 
+    }
 }
 */
