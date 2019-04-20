@@ -1,9 +1,5 @@
 "use strict";
 
-window.onload = function() {
-    loadcoffee();
-};
-
 
 function renderCoffee(coffee) {
     var html = '<div id="'+ coffee.id +'" data-toggle="modal" onclick="createModal(this)" data-target="#exampleModalScrollable" class="coffee">';
@@ -157,7 +153,8 @@ var coffees = [
     },
 ];
 
-var filteredCoffeesForFiltering = coffees;
+var filteredCoffeesForFiltering = coffees + loadcoffee();
+
 
 function updateCoffees(e) {
     /*e.preventDefault();*/ // don't submit the form, we just want to update the data
@@ -207,17 +204,18 @@ function addCoffee() {
         newCoffee.id=coffees.length + 1;
         newCoffee.name=newCoffeeInput;
         newCoffee.roast=newRoast;
-        coffees.push(newCoffee);
+        newCoffee.center = [-95.3698, 29.7604];
+
         newCoffee.img = coffeeImg = (newCoffeeImg) ? newCoffee.img = newCoffeeImg : newCoffee.img = "https://via.placeholder.com/150\n" +
             "\n" +
             "C/O https://placeholder.com/";
         newCoffee.origin = coffeeOrigin = (newCoffeeOrigin) ? newCoffee.origin = newCoffeeOrigin : newCoffee.origin = 'The land of the ice and snow';
         newCoffee.taste = coffeeTaste = (newCoffeeTaste) ? newCoffee.taste = newCoffeeTaste : newCoffee.taste ='Scrumdidlyumptious';
+    coffees.push(newCoffee);
         savecoffee();
         loadcoffee();
         tbody.innerHTML = renderCoffees(coffees);
 }
-
 
 
 var tbody = document.querySelector('#coffees');
@@ -226,7 +224,8 @@ var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', addCoffee);
+submitButton.addEventListener('click', addCoffee, false);
+submitButton.addEventListener('click', deleteInputs, false);
 
 
 /*
@@ -299,13 +298,19 @@ function loadcoffee() {
     console.log("Loaded local storage")
 }
 
+function deleteInputs() {
+    document.getElementById('newCoffeeName').value = '';
+    document.getElementById('newCoffeeImg').value = '';
+    document.getElementById('newCoffeeOrigin').value = '';
+    document.getElementById('newCoffeeTaste').value = '';
+
+}
 
 
 
+/*
 
-
-
-
-
+localStorage.clear();
+*/
 
 
