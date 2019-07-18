@@ -153,7 +153,7 @@ var coffees = [
     },
 ];
 
-var filteredCoffeesForFiltering = coffees + loadcoffee();
+// var filteredCoffeesForFiltering = coffees + loadcoffee();
 
 
 function updateCoffees(e) {
